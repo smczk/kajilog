@@ -454,6 +454,7 @@ Rails.application.config.sorcery.configure do |config|
     # Default: `:uid`
     #
     # user.provider_uid_attribute_name =
+    user.username_attribute_names = [:email]
   end
 
   # This line must come after the 'user config' block.
