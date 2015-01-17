@@ -17,7 +17,7 @@ gem 'jquery-rails'
 # Use sorcery
 gem 'sorcery'
 
-# Use sorcery
+# Use slim
 gem 'slim-rails'
 
 # Use ActiveModel has_secure_password
