@@ -1,0 +1,25 @@
+- model_class = UserHomework
+div class="page-header"
+  h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+table class="table table-striped"
+  thead
+    tr
+      th= model_class.human_attribute_name(:id)
+      th= model_class.human_attribute_name(:user_id)
+      th= model_class.human_attribute_name(:homework_id)
+      th= model_class.human_attribute_name(:created_at)
+      th=t '.actions', :default => t("helpers.actions")
+  tbody
+    - @user_homeworks.each do |user_homework|
+      tr
+        td= link_to user_homework.id, user_homework_path(user_homework)
+        td= user_homework.user_id
+        td= user_homework.homework_id
+        td=l user_homework.created_at
+        td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_homework_path(user_homework), :class => 'btn btn-default btn-xs'
+          '
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), user_homework_path(user_homework), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_user_homework_path, :class => 'btn btn-primary'
+

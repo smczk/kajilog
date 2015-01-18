@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :user_homeworks
+
   resources :homeworks
 
   root :to => 'users#index'
