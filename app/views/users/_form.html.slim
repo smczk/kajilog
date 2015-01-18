@@ -1,24 +1,19 @@
-= form_for(@user) do |f|
-  - if @user.errors.any?
-    #error_explanation
-      h2
-        = pluralize(@user.errors.count, "error")
-        |  prohibited this user from being saved:
-      ul
-        - @user.errors.full_messages.each do |message|
-          li
-            = message
-  .field
-    = f.label :email
-    br
-    = f.text_field :email
-  .field
-    = f.label :password
-    br
-    = f.password_field :password
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation
-  .actions
-    = f.submit
+= form_for @user, html: { class: "form form-horizontal user" } do |f|
+  .form-group
+    = f.label :email, :class => 'control-label'
+    .controls
+      = f.text_field :email, :class => 'form-control'
+    = error_span(@user[:email])
+  .form-group
+    = f.label :crypted_password, :class => 'control-label'
+    .controls
+      = f.text_field :crypted_password, :class => 'form-control'
+    = error_span(@user[:crypted_password])
+  .form-group
+    = f.label :salt, :class => 'control-label'
+    .controls
+      = f.text_field :salt, :class => 'form-control'
+    = error_span(@user[:salt])
+  = f.submit nil, :class => 'btn btn-primary'
+  '
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'

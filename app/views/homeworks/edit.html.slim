@@ -1,8 +1,4 @@
-h1 Editing homework
-
-== render 'form'
-
-= link_to 'Show', @homework
-'|
-= link_to 'Back', homeworks_path
-
+- model_class = Homework
+div class="page-header"
+  h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"
