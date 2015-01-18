@@ -3,7 +3,10 @@ class UserHomeworksController < ApplicationController
 
   # GET /user_homeworks
   def index
-    @user_homeworks = UserHomework.all
+    @user_homeworks = UserHomework.all.reverse
+    @user_homeworks_with_counts = UserHomework.where(user_id: current_user).joins(:homework)
+                                    .group("homeworks.name").order('count_homework_id desc')
+                                    .count('homework_id')
   end
 
   # GET /user_homeworks/1
@@ -53,6 +56,6 @@ class UserHomeworksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_homework_params
-      params[:user_homework]
+      params.require(:user_homework).permit(:user_id, :homework_id)
     end
 end

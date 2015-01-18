@@ -3,9 +3,9 @@ div class="page-header"
   h1=t '.title', :default => model_class.model_name.human.titleize
 
 p
-  strong= model_class.human_attribute_name(:user_id) + ':'
+  strong= model_class.human_attribute_name(:created_at) + ':'
   br
-  = @user_homework.user_id
+  = @user_homework.created_at.strftime("%Y/%m/%d")
 p
   strong= model_class.human_attribute_name(:homework_id) + ':'
   br
