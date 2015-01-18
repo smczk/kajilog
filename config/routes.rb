@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :homeworks
 
-  root :to => 'users#index'
+  root :to => 'user_homeworks#index'
   resources :user_sessions
   resources :users
 
