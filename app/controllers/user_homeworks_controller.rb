@@ -3,7 +3,7 @@ class UserHomeworksController < ApplicationController
 
   # GET /user_homeworks
   def index
-    @user_homeworks = UserHomework.all.reverse
+    @user_homeworks = UserHomework.where(user_id: current_user).reverse
     @user_homeworks_with_counts = UserHomework.where(user_id: current_user).joins(:homework)
                                     .group("homeworks.name").order('count_homework_id desc')
                                     .count('homework_id')
