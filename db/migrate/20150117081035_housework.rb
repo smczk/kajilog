@@ -1,6 +1,6 @@
-class Homework < ActiveRecord::Migration
+class Housework < ActiveRecord::Migration
   def change
-    create_table :homeworks do |t|
+    create_table :houseworks do |t|
       t.string :name, :null => false
 
       t.timestamps

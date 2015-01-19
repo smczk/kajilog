@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :user_homeworks
+  resources :user_houseworks
 
-  resources :homeworks
+  resources :houseworks
 
-  root :to => 'user_homeworks#index'
+  root :to => 'user_houseworks#index'
   resources :user_sessions
   resources :users
 

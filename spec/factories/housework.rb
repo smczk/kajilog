@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :homework, class: Homework do
+  factory :housework, class: Housework do
     name "washing dishes"
   end
 end 
