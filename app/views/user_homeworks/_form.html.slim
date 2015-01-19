@@ -1,14 +1,9 @@
 = form_for @user_homework, html: { class: "form form-horizontal user_homework" } do |f|
   .form-group
-    = f.label :user_id, :class => 'control-label'
-    .controls
-      = f.text_field :user_id, :class => 'form-control'
-    = error_span(@user_homework[:user_id])
-  .form-group
     = f.label :homework_id, :class => 'control-label'
     .controls
-      = f.text_field :homework_id, :class => 'form-control'
+      = f.collection_select :homework_id, Homework.all, :id, :name, {:prompt => "選択してください"}, {:class => 'form_control'}
     = error_span(@user_homework[:homework_id])
-  = f.submit nil, :class => 'btn btn-primary'
+  = f.submit "登録", :class => 'btn btn-primary'
   '
   = link_to t('.cancel', :default => t("helpers.links.cancel")), user_homeworks_path, :class => 'btn'

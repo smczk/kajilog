@@ -3,9 +3,12 @@ class UserHomeworksController < ApplicationController
 
   # GET /user_homeworks
   def index
-    @user_homeworks = UserHomework.where(user_id: current_user).reverse
-    @user_homeworks_with_counts = UserHomework.where(user_id: current_user).joins(:homework)
-                                    .group("homeworks.name").order('count_homework_id desc')
+    user_homeworks = UserHomework.where(user_id: current_user)
+    @user_homeworks = user_homeworks.reverse
+    @user_homeworks_with_counts = user_homeworks
+                                    .joins(:homework)
+                                    .group("homeworks.name")
+                                    .order('count_homework_id desc')
                                     .count('homework_id')
   end
 
@@ -25,6 +28,7 @@ class UserHomeworksController < ApplicationController
   # POST /user_homeworks
   def create
     @user_homework = UserHomework.new(user_homework_params)
+    @user_homework.user_id = current_user.id if current_user
 
     if @user_homework.save
       redirect_to @user_homework, notice: 'User homework was successfully created.'
@@ -56,6 +60,6 @@ class UserHomeworksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_homework_params
-      params.require(:user_homework).permit(:user_id, :homework_id)
+      params.require(:user_homework).permit(:homework_id)
     end
 end
