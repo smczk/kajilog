@@ -14,6 +14,6 @@
     .controls
       = f.text_field :password_confirmation, :class => 'form-control'
     = error_span(@user[:password_confirmation])
-  = f.submit nil, :class => 'btn btn-primary'
-  '
+  .actions
+    = f.submit nil, :class => 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'

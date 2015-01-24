@@ -22,10 +22,10 @@ html
                 li = link_to "Register", new_user_path
                 li = link_to "Login", :login
 
-  .wrapper
-    div
-      p#notice
-        = flash[:notice]
-      p#alert
-        = flash[:alert]
-    = yield
+    .wrapper
+      div
+        p#notice
+          = flash[:notice]
+        p#alert
+          = flash[:alert]
+      = yield
