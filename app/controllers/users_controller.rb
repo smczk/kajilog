@@ -18,6 +18,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    unless @user == current_user
+      redirect_to(:users)
+    end
   end
 
   # POST /users
@@ -33,7 +36,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    if @user.update(user_params)
+    if @user == current_user && @user.update(user_params)
       redirect_to(:user, notice: 'User was successfully updated.')
     else
       render :edit
@@ -42,8 +45,11 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
-    @user.destroy
-    redirect_to users_url, notice: 'User was successfully destroyed.'
+    if @user == current_user
+      @user.destroy
+    else
+      redirect_to users_url, alert: 'You can not destroy it.'
+    end
   end
 
   private
