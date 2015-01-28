@@ -2,7 +2,7 @@
   .form-group
     = f.label :housework_id, :class => 'control-label'
     .controls
-      = f.collection_select :housework_id, Housework.all, :id, :name, {:prompt => "選択してください"}, {:class => 'form_control'}
+      = f.collection_select :housework_id, Housework.all, :id, :name, {:prompt => "選択してください"}, {:class => 'form-control'}
     = error_span(@user_housework[:housework_id])
   = f.submit "登録", :class => 'btn btn-primary'
   '

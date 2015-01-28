@@ -16,6 +16,7 @@ ja:
       destroy: "削除"
       new: "新規作成"
       edit: "編集"
+      login: "ログイン"
     titles:
       edit: "%{model}の編集"
       save: "%{model}の保存"
