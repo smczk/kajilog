@@ -2,7 +2,7 @@ doctype html
 html
   head
     title
-      | KAJILOG
+      | 家事ログ
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -11,16 +11,16 @@ html
       .container-fluid
         .wrapper
           .navbar-header
-            = link_to "KAJILOG", root_path, class: "navbar-brand"
+            = link_to "家事ログ", root_path, class: "navbar-brand"
 
           .collapse#bs-example-navbar-collapse-1 *{class: "navbar-collapse"}
-            ul.nav *{class: "navbar-nav"}
+            ul.nav *{class: ["navbar-nav","navbar-right"]}
               - if current_user
-                li = link_to "Edit Profile", edit_user_path(current_user.id)
-                li = link_to "Logout", :logout, method: :post
+                li = link_to "プロフィール編集", edit_user_path(current_user.id)
+                li = link_to "ログアウト", :logout, method: :post
               - else
-                li = link_to "Register", new_user_path
-                li = link_to "Login", :login
+                li = link_to "ユーザー登録", new_user_path
+                li = link_to "ログイン", :login
 
     .wrapper
       div
