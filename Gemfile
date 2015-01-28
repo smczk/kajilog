@@ -24,6 +24,8 @@ gem 'slim-rails'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+gem 'twitter-bootswatch-rails'
+gem 'twitter-bootswatch-rails-helpers'
 
 group :development do
   gem 'sqlite3'
