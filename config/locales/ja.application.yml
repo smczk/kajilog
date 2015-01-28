@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      housework: '家事'
+      user_housework: 'あなたの家事'
+    attributes:
+      housework:
+        id: 'ID'
+        name: '名前'
+        created_at: '登録日'
+        updated_at: '更新日'
+      user_housework:
+        id: 'ID'
+        user_id: 'ユーザー'
+        housework_id: '家事'
+        created_at: '登録日'
+        updated_at: '更新日'

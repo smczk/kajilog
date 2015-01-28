@@ -1,6 +1,6 @@
 - model_class = Housework
 div class="page-header"
-  h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+  h1=t '.title', :default => model_class.model_name.human.titleize + '一覧'
 table class="table table-striped"
   thead
     tr
@@ -13,7 +13,7 @@ table class="table table-striped"
       tr
         td= link_to housework.id, housework_path(housework)
         td= housework.name
-        td=l housework.created_at
+        td=l housework.created_at.to_date
         td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_housework_path(housework), :class => 'btn btn-default btn-xs'
           '

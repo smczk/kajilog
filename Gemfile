@@ -10,15 +10,14 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
 # Use sorcery
 gem 'sorcery'
-
 # Use slim
 gem 'slim-rails'
+# Use i18n
+gem 'rails-i18n'
 
 # Use twitter-bootstrap
 gem 'therubyracer'
