@@ -2,23 +2,27 @@
 div class="page-header"
   h2= "あなたの家事記録"
 
-div class="total-houseworks"
-  h4= "実績"
-  table class="table table-striped"
-    tbody
-      - @user_houseworks_with_counts.to_a.each do |user_housework_with_count|
-        tr
-          td= user_housework_with_count[0]
-          td= user_housework_with_count[1]
+div class="profile col-lg-3 pull-left text-center"
+  = image_tag 'avatar.png', :align => 'center'
 
-div class="recently-houseworks"
-  h4= "最近やった家事"
-  table class="table table-striped"
-    tbody
-      - @user_houseworks.each do |user_housework|
-        tr
-          td= user_housework.created_at.strftime("%Y/%m/%d")
-          td= link_to user_housework.housework.name, user_housework_path(user_housework)
+div class="row-fluid"
+  div class="activities col-lg-9 pull-left"
+    div class="total-houseworks"
+      h4= "実績"
+      table class="table table-striped"
+        tbody
+          - @user_houseworks_with_counts.to_a.each do |user_housework_with_count|
+            tr
+              td= user_housework_with_count[0]
+              td class="text-right" = user_housework_with_count[1]
 
-= link_to t('.new', :default => t("helpers.links.new")), new_user_housework_path, :class => 'btn btn-primary'
+    div class="recently-houseworks"
+      h4= "最近やった家事"
+      table class="table table-striped"
+        tbody
+          - @user_houseworks.each do |user_housework|
+            tr
+              td= user_housework.created_at.strftime("%Y/%m/%d")
+              td class="text-right" = link_to user_housework.housework.name, user_housework_path(user_housework)
 
+    = link_to t('.new', :default => t("helpers.links.new")), new_user_housework_path, :class => ['btn btn-primary','pull-left']
