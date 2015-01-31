@@ -16,8 +16,6 @@ gem 'jquery-rails'
 gem 'sorcery'
 # Use slim
 gem 'slim-rails'
-# Use i18n
-gem 'rails-i18n'
 
 # Use twitter-bootstrap
 gem 'therubyracer'
