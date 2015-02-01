@@ -2,6 +2,9 @@
 
 Kajilog is a tool to record my housework for continuing motivation.  
 
+## Dependencies
+* Ruby 2.2.0+
+
 ## How to use
 1. clone repository
 2. bundle install --without production
