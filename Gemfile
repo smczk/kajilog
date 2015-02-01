@@ -16,13 +16,14 @@ gem 'jquery-rails'
 gem 'sorcery'
 # Use slim
 gem 'slim-rails'
-
 # Use twitter-bootstrap
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'twitter-bootswatch-rails'
 gem 'twitter-bootswatch-rails-helpers'
+# User seed-fu
+gem 'seed-fu'
 
 group :development do
   gem 'sqlite3'
