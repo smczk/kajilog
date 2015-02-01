@@ -3,13 +3,8 @@ class UserHouseworksController < ApplicationController
 
   # GET /user_houseworks
   def index
-    user_houseworks = UserHousework.where(user_id: current_user)
-    @user_houseworks = user_houseworks.reverse
-    @user_houseworks_with_counts = user_houseworks
-                                    .joins(:housework)
-                                    .group("houseworks.name")
-                                    .order('count_housework_id desc')
-                                    .count('housework_id')
+    @user_houseworks = UserHousework.latest5(current_user)
+    @user_houseworks_with_counts = UserHousework.user_houseworks_with_counts(current_user)
   end
 
   # GET /user_houseworks/1

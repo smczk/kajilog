@@ -23,4 +23,32 @@ RSpec.describe UserHousework, :type => :model do
       expect(user_housework.save).to be_truthy
     end
   end
+
+  describe 'Methods latest5' do
+    context 'register 6 user_houseworks' do
+      it 'expected normal' do
+        user = FactoryGirl.create(:truthy_user)
+        housework = FactoryGirl.create(:housework)
+        6.times do
+          user_housework = UserHousework.new(:user_id => user.id, :housework_id => housework.id).save
+        end
+        size = UserHousework.latest5(1).size
+        expect(size).to eq 5
+      end
+    end
+  end
+
+  describe 'Methods user_houseworks_with_counts' do
+    context 'register 6 user_houseworks' do
+      it 'expected normal' do
+        user = FactoryGirl.create(:truthy_user)
+        housework = FactoryGirl.create(:housework)
+        6.times do
+          user_housework = UserHousework.new(:user_id => user.id, :housework_id => housework.id).save
+        end
+        user_housework_with_count = UserHousework.user_houseworks_with_counts(1).to_a
+        expect(user_housework_with_count[0][1]).to eq 6
+      end
+    end
+  end
 end
