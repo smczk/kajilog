@@ -21,15 +21,17 @@ html
               li = link_to "ユーザー登録", new_user_path
               li = link_to "ログイン", :login
 
-    .container
-      div
-        p#notice
-          = flash[:notice]
-        p#alert
-          = flash[:alert]
-      = yield
+    #wrap 
+      #container-wrap
+        .container
+          #content
+            div
+              p#notice
+                = flash[:notice]
+              p#alert
+                = flash[:alert]
+            = yield
 
-    .footer
+    #footer
       .container
-        .row
-          p class="footer-copyright text-right" &copy; 2015 smczk
+        p class="footer-copyright text-center" &copy; 2015 smczk

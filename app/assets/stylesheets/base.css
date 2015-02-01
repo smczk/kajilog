@@ -1,3 +1,7 @@
+.background {
+  background-image: url(/images/livingroom.jpg);
+}
+
 .wrapper {
   margin: 0 auto;
   padding: 0;

@@ -1,4 +1,8 @@
 h1
-  | 
-.page-header *{class: "pull-right"}
-  = render 'form'
+  |家事ログ 
+div class="pull-right"
+  .page-header
+    = render 'form'
+div class="row background-image lead"
+  = image_tag '/images/epron.png', {height: 240, width: 240}
+  |家事を記録してやる気に変える。
