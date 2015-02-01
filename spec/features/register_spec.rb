@@ -6,7 +6,7 @@ describe "login process", :type => :feature do
     fill_in 'user_email', :with => 'guest00@guest.com'
     fill_in 'user_password', :with => 'guest000'
     fill_in 'user_password_confirmation', :with => 'guest000'
-    click_button 'Create User'
+    click_button '登録する'
     expect(page).to have_content 'Please login first.'
   end
 end
